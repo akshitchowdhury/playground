@@ -2,6 +2,7 @@ import React from "react";
 
 const TableExample = () => {
   return (
+    <>
     <table border="1" style={{ borderCollapse: "collapse", width: "100%" }}>
       <thead>
         <tr>
@@ -29,6 +30,7 @@ const TableExample = () => {
         </tr>
       </tbody>
     </table>
+    </>
   );
 };
 
