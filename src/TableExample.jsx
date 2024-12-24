@@ -3,6 +3,8 @@ import React from "react";
 const TableExample = () => {
   return (
     <>
+    <label> Search here </label>
+    <input type="text"/>
     <table border="1" style={{ borderCollapse: "collapse", width: "100%" }}>
       <thead>
         <tr>
