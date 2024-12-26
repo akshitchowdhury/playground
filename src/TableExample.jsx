@@ -5,6 +5,7 @@ const TableExample = () => {
     <>
     <label> Search here </label>
     <input type="text"/>
+    <button>Search engine</button>
     <table border="1" style={{ borderCollapse: "collapse", width: "100%" }}>
       <thead>
         <tr>
