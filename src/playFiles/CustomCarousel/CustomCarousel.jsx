@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 const CustomCarousel = () => {
 
-const colors = ["red","black","yellow","violet","pink"]
+const colors = ["red","black","yellow","violet","pink","orange"]
 
 const[colorList,setColorList] = useState([])
 const[selectedColor,setSelectedColor] = useState("")
@@ -15,7 +15,8 @@ console.log("Selected color", selectedColor)
 const handleColorChange = ()=>{
 
     setSelectedColor(colorList[colorIndex])
-    setColorIndex(colorIndex+1)
+ colorIndex<colorList.length ?  setColorIndex(colorIndex+1) : setColorIndex(colorList.length-1)
+    console.log("clicked")
 }
 useEffect(()=>{
     copyColorList()
@@ -45,9 +46,11 @@ useEffect(()=>{
       <div style={{
         width: "400px",
         height: "400px",
-        backgroundColor: selectedColor
+        backgroundColor: !selectedColor ? colorList[colorList.length-1] : selectedColor
       }}>
     <button onClick={handleColorChange}>Click me to change color</button>
+    
+    <p style={{color: "white"}}>{!selectedColor ? "default" : selectedColor}</p>
       </div>
     </div>
     </>
