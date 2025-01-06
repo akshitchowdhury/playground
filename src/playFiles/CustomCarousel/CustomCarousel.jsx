@@ -5,9 +5,17 @@ const CustomCarousel = () => {
 const colors = ["red","black","yellow","violet","pink"]
 
 const[colorList,setColorList] = useState([])
-
+const[selectedColor,setSelectedColor] = useState("")
+const[colorIndex,setColorIndex] = useState(0)
 const copyColorList= ()=>{
     setColorList([...colors])
+console.log("Selected color", selectedColor)
+}
+
+const handleColorChange = ()=>{
+
+    setSelectedColor(colorList[colorIndex])
+    setColorIndex(colorIndex+1)
 }
 useEffect(()=>{
     copyColorList()
@@ -15,7 +23,11 @@ useEffect(()=>{
     return (
         <>
     {
-        console.log("Color list copied", colorList)
+        console.log("Color list copied", colorList, selectedColor)
+        
+    }
+    {
+        
     }
     <div>
     
@@ -33,9 +45,9 @@ useEffect(()=>{
       <div style={{
         width: "400px",
         height: "400px",
-        backgroundColor: colorList[1]
+        backgroundColor: selectedColor
       }}>
-    <button>Click me to change color</button>
+    <button onClick={handleColorChange}>Click me to change color</button>
       </div>
     </div>
     </>
