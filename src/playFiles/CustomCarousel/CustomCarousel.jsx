@@ -1,20 +1,27 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const CustomCarousel = () => {
 
 const colors = ["red","black","yellow","violet","pink"]
 
-const[colorList,setColorList] = useState([colors])
+const[colorList,setColorList] = useState([])
+
+const copyColorList= ()=>{
+    setColorList([...colors])
+}
+useEffect(()=>{
+    copyColorList()
+},[])
     return (
         <>
     {
-        console.log(colorList)
+        console.log("Color list copied", colorList)
     }
     <div>
     
       {
         
-        colorList.map((index,color)=>(
+        colorList.map((color,index)=>(
             <>
                 <p key={index}>
                     {color}
@@ -22,6 +29,14 @@ const[colorList,setColorList] = useState([colors])
             </>
         ))
       }
+
+      <div style={{
+        width: "400px",
+        height: "400px",
+        backgroundColor: colorList[1]
+      }}>
+    <button>Click me to change color</button>
+      </div>
     </div>
     </>
   )
