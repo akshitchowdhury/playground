@@ -6,6 +6,17 @@ const data = [
       dept: "Marketing",
       status: "Active",
       progress: 78,
+      address: {
+        city: "New York",
+        country: "USA",
+        postalCode: "10001",
+      },
+      roles: ["Manager", "Team Lead"],
+      performance: {
+        lastReview: "2024-12-01",
+        rating: 4.5,
+        achievements: ["Increased sales by 20%", "Launched new campaign"],
+      },
     },
     {
       id: 2,
@@ -14,6 +25,17 @@ const data = [
       dept: "Sales",
       status: "Active",
       progress: 85,
+      address: {
+        city: "Los Angeles",
+        country: "USA",
+        postalCode: "90001",
+      },
+      roles: ["Sales Executive"],
+      performance: {
+        lastReview: "2024-11-20",
+        rating: 4.2,
+        achievements: ["Top seller of the month", "Onboarded 10 new clients"],
+      },
     },
     {
       id: 3,
@@ -22,6 +44,17 @@ const data = [
       dept: "Finance",
       status: "Inactive",
       progress: 62,
+      address: {
+        city: "Chicago",
+        country: "USA",
+        postalCode: "60601",
+      },
+      roles: ["Accountant"],
+      performance: {
+        lastReview: "2024-10-15",
+        rating: 3.9,
+        achievements: ["Reduced budget variance by 15%", "Implemented new expense policy"],
+      },
     },
     {
       id: 4,
@@ -30,6 +63,17 @@ const data = [
       dept: "IT",
       status: "Active",
       progress: 90,
+      address: {
+        city: "San Francisco",
+        country: "USA",
+        postalCode: "94101",
+      },
+      roles: ["Software Engineer", "System Administrator"],
+      performance: {
+        lastReview: "2024-09-10",
+        rating: 4.8,
+        achievements: ["Optimized server performance", "Deployed a new security system"],
+      },
     },
     {
       id: 5,
@@ -38,6 +82,17 @@ const data = [
       dept: "HR",
       status: "Inactive",
       progress: 54,
+      address: {
+        city: "Austin",
+        country: "USA",
+        postalCode: "73301",
+      },
+      roles: ["HR Specialist"],
+      performance: {
+        lastReview: "2024-08-05",
+        rating: 3.7,
+        achievements: ["Improved employee retention by 12%", "Conducted 5 training sessions"],
+      },
     },
     {
       id: 6,
@@ -46,6 +101,17 @@ const data = [
       dept: "Marketing",
       status: "Active",
       progress: 70,
+      address: {
+        city: "Miami",
+        country: "USA",
+        postalCode: "33101",
+      },
+      roles: ["Content Creator", "SEO Specialist"],
+      performance: {
+        lastReview: "2024-07-15",
+        rating: 4.3,
+        achievements: ["Increased website traffic by 30%", "Launched new blog series"],
+      },
     },
     {
       id: 7,
@@ -54,6 +120,17 @@ const data = [
       dept: "Sales",
       status: "Inactive",
       progress: 45,
+      address: {
+        city: "Houston",
+        country: "USA",
+        postalCode: "77001",
+      },
+      roles: ["Sales Assistant"],
+      performance: {
+        lastReview: "2024-06-20",
+        rating: 3.5,
+        achievements: ["Assisted in closing 5 major deals", "Improved customer follow-up process"],
+      },
     },
     {
       id: 8,
@@ -62,6 +139,17 @@ const data = [
       dept: "Finance",
       status: "Active",
       progress: 88,
+      address: {
+        city: "Seattle",
+        country: "USA",
+        postalCode: "98101",
+      },
+      roles: ["Financial Analyst"],
+      performance: {
+        lastReview: "2024-05-25",
+        rating: 4.7,
+        achievements: ["Forecasted revenue growth for Q4", "Reduced operating expenses by 10%"],
+      },
     },
     {
       id: 9,
@@ -70,6 +158,17 @@ const data = [
       dept: "IT",
       status: "Inactive",
       progress: 34,
+      address: {
+        city: "Denver",
+        country: "USA",
+        postalCode: "80201",
+      },
+      roles: ["Help Desk Technician"],
+      performance: {
+        lastReview: "2024-04-30",
+        rating: 3.8,
+        achievements: ["Resolved 150+ tickets", "Improved system uptime"],
+      },
     },
     {
       id: 10,
@@ -78,16 +177,18 @@ const data = [
       dept: "HR",
       status: "Active",
       progress: 95,
+      address: {
+        city: "Boston",
+        country: "USA",
+        postalCode: "02101",
+      },
+      roles: ["HR Manager"],
+      performance: {
+        lastReview: "2024-03-10",
+        rating: 4.9,
+        achievements: ["Implemented new hiring process", "Launched employee engagement program"],
+      },
     },
-    {
-      id: 11,
-      name: "Johnny Dan",
-      email: "johnny.dan@example.com",
-      dept: "ITC",
-      status: "Active",
-      progress: 37,
-    }
-    // ... continue adding up to 50 objects
   ];
   
   export default data;
