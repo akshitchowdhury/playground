@@ -29,13 +29,7 @@ const Table = () => {
     },[])
   return (
     <div>
-{
-    deptList.map((item,index)=>(
-        <>
-            <p key={index}>{item}</p>
-        </>
-    ))
-}
+
 <table>
   <thead>
     <tr>
@@ -45,16 +39,27 @@ const Table = () => {
     </tr>
   </thead>
   <tbody>
-    {objectList.map((group, index) => (
-      group.emp.map((employee, i) => (
-        <tr key={`${index}-${i}`}>
-          {i === 0 && <td rowSpan={group.emp.length}>{group.dept}</td>}
-          <td>{employee.name}</td>
-          <td>{employee.email}</td>
-        </tr>
-      ))
-    ))}
-  </tbody>
+  {objectList.map((group, index) => (
+    group.emp.map((employee, i) => (
+      <tr key={`${index}-${i}`} className="border-b hover:bg-gray-100">
+        {/* Department Name - Only on the first employee of the department */}
+        {i === 0 && (
+          <td
+            rowSpan={group.emp.length}
+            className="bg-gray-200 border-2 border-black text-center p-4 font-semibold text-lg"
+          >
+            {group.dept}
+          </td>
+        )}
+        {/* Employee Name */}
+        <td className="text-center p-4">{employee.name}</td>
+        {/* Employee Email */}
+        <td className="text-center p-4">{employee.email}</td>
+      </tr>
+    ))
+  ))}
+</tbody>
+
 </table>
 
     </div>
