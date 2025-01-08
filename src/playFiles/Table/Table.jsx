@@ -6,7 +6,7 @@ const Table = () => {
     const depts = new Set (data.map((item)=>item.dept))
     const[deptList,setDeptList] = useState([])
     
-     const[objectList,setObjectList] = useState([{name: '', dept:''}])
+     const[objectList,setObjectList] = useState([])
     useEffect(()=>{
         // setDataList(data)
         // setDeptList(data.map((item)=>item.dept))
@@ -18,13 +18,14 @@ const Table = () => {
             const people = data.filter((item)=>item.dept===dept);
             return{
                 dept: dept,
-                people: people.map((person)=>({
+                emp: people.map((person)=>({
                     name: person.name,
                     email: person.email
                 }))
             }
         })
     setObjectList(groupedList)
+    console.log(groupedList)
     },[])
   return (
     <div>
@@ -35,9 +36,27 @@ const Table = () => {
         </>
     ))
 }
-      <table>
-        <th></th>
-      </table>
+<table>
+  <thead>
+    <tr>
+      <th>Dept</th>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    {objectList.map((group, index) => (
+      group.emp.map((employee, i) => (
+        <tr key={`${index}-${i}`}>
+          {i === 0 && <td rowSpan={group.emp.length}>{group.dept}</td>}
+          <td>{employee.name}</td>
+          <td>{employee.email}</td>
+        </tr>
+      ))
+    ))}
+  </tbody>
+</table>
+
     </div>
   )
 }
