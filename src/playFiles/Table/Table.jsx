@@ -4,19 +4,20 @@ import data from './data'
 const Table = () => {
     const[dataList,setDataList] = useState([])
     const depts = new Set (data.map((item)=>item.dept))
-    const[deptList,setDeptList] = useState(depts)
-
+    const[deptList,setDeptList] = useState([])
+    
      
     useEffect(()=>{
         // setDataList(data)
         // setDeptList(data.map((item)=>item.dept))
         console.log(deptList)
-        setDataList([...deptList])
+        setDataList(data)
+        setDeptList([...depts])
     },[])
   return (
     <div>
 {
-    dataList.map((item,index)=>(
+    deptList.map((item,index)=>(
         <>
             <p key={index}>{item}</p>
         </>
