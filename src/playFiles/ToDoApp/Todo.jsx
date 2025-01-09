@@ -13,6 +13,10 @@ const Todo = () => {
             setTaskName('')
     }
 
+    const handleDeleteTask = (currtask)=>{
+        setTaskList(taskList.filter((task)=>currtask!==task))
+        console.log("Task deleted!")
+    }
     return (
         <>
     <div>
@@ -24,7 +28,12 @@ const Todo = () => {
 
         {
             taskList.length>0 && taskList.map((task,index)=>(
-                <p key={index}>{task}</p>
+                <>
+                <div key={index} className='flex flex-row'> 
+                <p>{task}</p>
+                <button onClick={()=>handleDeleteTask(task) } className='bg-red-500 border-2 border-blue-500 rounded-md'>Delete task</button>
+                </div>
+                </>
             ))
         }
 
