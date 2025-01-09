@@ -28,7 +28,7 @@ const Table = () => {
     console.log(groupedList)
     },[])
   return (
-    <div>
+    <div className='flex items-center justify-center'>
 
 <table>
   <thead>
