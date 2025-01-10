@@ -7,6 +7,12 @@ const ApplicationPage = () => {
     const handleAddTask = (event)=>{
         event.preventDefault();
         setTaskList([...taskList,taskName])
+        setTaskName("")
+    }
+
+    const handleDeletion = (currTask)=>{
+        console.log("Deleted task")
+        setTaskList(taskList.filter((task)=> task!==currTask))
     }
     const navigate = useNavigate()
     const handleLogout = ()=>{
@@ -22,6 +28,7 @@ const ApplicationPage = () => {
         taskList.map((task,index)=>(
             <>
                 <p key={index}>{task}</p>
+                <button onClick={()=> handleDeletion(task)}>Delete task</button>
             </>
         ))
       }
