@@ -9,7 +9,7 @@ const ProtectedRoute = () => {
   return (
     <div>
     {
-        isLoggedIn ? <Outlet/> : navigate('/')
+        isLoggedIn ? <Outlet/> : <Login/>
     }
       
       
