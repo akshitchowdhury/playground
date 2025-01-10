@@ -18,13 +18,13 @@ function App() {
       <Routes>
       
       <Route element={<ProtectedRoute/>}>
-      <Route path="/app" element={<ApplicationPage/>}/>
+      <Route  element={<ApplicationPage/>} path="/app" />
       </Route>
       
       <Route path="/" element={<Login/>}/>
       </Routes>
       </Router>
-      <Login/>
+      
     </div>
   );
 }

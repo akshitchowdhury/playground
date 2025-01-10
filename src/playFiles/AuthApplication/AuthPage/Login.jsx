@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
     const [username,setUsername] = useState('')
     const[password,setPassword] = useState('')
-    const[authKey,setAuthKey] = useState("")
+    const navigate = useNavigate()
     const handleSubmission = (event)=>{
             event.preventDefault();
             console.log("Log in clicked")
@@ -11,9 +12,11 @@ const Login = () => {
                 alert("Log in succesful")
                 setUsername("")
                 setPassword("")
-                console.log(username+password)
-                setAuthKey(username+password)
-                localStorage.setItem("auth",authKey)
+                
+                // setAuthKey(username+password)
+                localStorage.setItem("auth",username+password)
+                console.log(localStorage.isAuthenticated)
+                navigate('/app')
                 
             }
             else{

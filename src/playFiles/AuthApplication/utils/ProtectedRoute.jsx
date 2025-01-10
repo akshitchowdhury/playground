@@ -1,13 +1,15 @@
 import React from 'react'
-import { Navigate, Outlet } from 'react-router-dom'
+import {  Outlet, useNavigate } from 'react-router-dom'
 import Login from '../AuthPage/Login';
 
 const ProtectedRoute = () => {
-    let isLoggedIn = localStorage.isAuthenticated;
+
+    let isLoggedIn = localStorage.getItem("auth");
+    const navigate = useNavigate()
   return (
     <div>
     {
-        isLoggedIn ? <Outlet/> : <Navigate to="/"/>
+        isLoggedIn ? <Outlet/> : navigate('/')
     }
       
       
