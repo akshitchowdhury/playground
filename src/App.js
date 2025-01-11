@@ -9,12 +9,13 @@ import {
 } from 'react-router-dom'
 import ApplicationPage from "./playFiles/AuthApplication/ProtectedRoutes/ApplicationPage";
 import ProtectedRoute from "./playFiles/AuthApplication/utils/ProtectedRoute";
+import FeedBackStar from "./playFiles/FeedBackStar/FeedBackStar";
 function App() {
 
   return (
     <div className="App">
       
-      <Router>
+      {/* <Router>
       <Routes>
       
       <Route element={<ProtectedRoute/>}>
@@ -23,8 +24,8 @@ function App() {
       
       <Route path="/" element={<Login/>}/>
       </Routes>
-      </Router>
-      
+      </Router> */}
+      <FeedBackStar/>
     </div>
   );
 }
