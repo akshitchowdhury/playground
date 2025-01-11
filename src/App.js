@@ -10,6 +10,7 @@ import {
 import ApplicationPage from "./playFiles/AuthApplication/ProtectedRoutes/ApplicationPage";
 import ProtectedRoute from "./playFiles/AuthApplication/utils/ProtectedRoute";
 import FeedBackStar from "./playFiles/FeedBackStar/FeedBackStar";
+import FilterList from "./playFiles/FilterList/FilterList";
 function App() {
 
   return (
@@ -26,6 +27,7 @@ function App() {
       </Routes>
       </Router> */}
       <FeedBackStar/>
+      <FilterList/>
     </div>
   );
 }
