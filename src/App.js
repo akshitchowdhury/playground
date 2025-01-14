@@ -26,7 +26,7 @@ function App() {
       <Route path="/" element={<Login/>}/>
       </Routes>
       </Router> */}
-      <FeedBackStar/>
+      {/* <FeedBackStar/> */}
       <FilterList/>
     </div>
   );
