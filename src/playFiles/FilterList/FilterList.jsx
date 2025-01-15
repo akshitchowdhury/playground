@@ -30,7 +30,7 @@ const FilterList = () => {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4 text-center">Anime List</h1>
+      <h1 className="text-2xl font-bold mb-4 text-center">Animes List</h1>
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white border border-gray-300 rounded-lg">
           <thead>
