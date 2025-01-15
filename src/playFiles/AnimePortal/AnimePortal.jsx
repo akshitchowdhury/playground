@@ -46,7 +46,7 @@ const AnimePortal = () => {
     </div>
 
     <table className="min-w-full bg-white border border-gray-300 rounded-lg">
-        <thead>
+        <thead className=''>
         <tr className="bg-gray-800 text-white">
 
         <th>    Category</th>
@@ -54,11 +54,19 @@ const AnimePortal = () => {
          <th> Title</th>
           <th>  rating</th>
             </tr>
-
+            </thead>
             <tbody>
+                {
+                    animeCategories.map((item,index)=>(
+                        <tr className={`${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'} h-[100px] border-b border-gray-300`}>
+                            <td>{item.category}</td>
+                        </tr>
+                    ))
+                }
+
                 
             </tbody>
-        </thead>
+        
     </table>
     </>
   )
