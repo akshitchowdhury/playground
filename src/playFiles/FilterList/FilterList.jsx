@@ -20,13 +20,14 @@ const FilterList = () => {
         
         console.log("Prev button clicked")
     }
+    const filteredAnimeList = animeList.filter((item)=>item.toLowerCase().includes(searchText.toLowerCase()))
     useEffect(()=>{
         setAnimeList(data);
     },[])
   useEffect(() => {
     
-    setPagionatedList(animeList.slice(animeIndex,animeIndex+itemsPerPage))
-  }, [animeList,animeIndex]);
+    setPagionatedList(filteredAnimeList.slice(animeIndex,animeIndex+itemsPerPage))
+  }, [animeList,animeIndex,filteredAnimeList]);
 
   return (
     <div className="p-6">
