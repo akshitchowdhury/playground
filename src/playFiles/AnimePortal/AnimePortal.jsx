@@ -44,30 +44,35 @@ const AnimePortal = () => {
       } */}
       
     </div>
+    <table className="min-w-full bg-white border border-gray-300 rounded-lg shadow-lg">
+  <thead>
+    <tr className="bg-gray-800 text-white text-left">
+      <th className="py-3 px-4 uppercase text-sm font-semibold">Category</th>
+      <th className="py-3 px-4 uppercase text-sm font-semibold">Title</th>
+      <th className="py-3 px-4 uppercase text-sm font-semibold">Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    {animeCategories.map((category, index) =>
+      category.animeStack.map((item, animeIndex) => (
+        <tr
+          key={`${index}-${animeIndex}`}
+          className={`${
+            (index + animeIndex) % 2 === 0 ? 'bg-gray-100' : 'bg-white'
+          } hover:bg-indigo-100 transition-all duration-300`}
+        >
+          {/* Render the category name only on the first row */}
+          <td className="py-3 px-4 font-medium text-gray-700">
+            {animeIndex === 0 ? category.category : ''}
+          </td>
+          <td className="py-3 px-4 text-gray-600">{item.title}</td>
+          <td className="py-3 px-4 text-gray-600">{item.rating}</td>
+        </tr>
+      ))
+    )}
+  </tbody>
+</table>
 
-    <table className="min-w-full bg-white border border-gray-300 rounded-lg">
-        <thead className=''>
-        <tr className="bg-gray-800 text-white">
-
-        <th>    Category</th>
-            
-         <th> Title</th>
-          <th>  rating</th>
-            </tr>
-            </thead>
-            <tbody>
-                {
-                    animeCategories.map((item,index)=>(
-                        <tr className={`${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'} h-[100px] border-b border-gray-300`}>
-                            <td>{item.category}</td>
-                        </tr>
-                    ))
-                }
-
-                
-            </tbody>
-        
-    </table>
     </>
   )
 }
