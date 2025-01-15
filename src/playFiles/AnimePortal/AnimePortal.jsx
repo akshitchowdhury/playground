@@ -7,7 +7,11 @@ const AnimePortal = () => {
     const[animeList,setAnimeList] = useState([])
     const[animeCategories,setAnimeCategories] = useState([])
     const animeRender = ()=>{
+     const animeTitles =  animeData.data.categories.flatMap((category)=> category.animeStack.map((anime)=>anime.title))
+
         setAnimeCategories(animeData.data.categories)
+        setAnimeList(animeTitles)
+        
     }
 
     useEffect(()=>{
@@ -24,6 +28,16 @@ const AnimePortal = () => {
             </>
         ))
       }
+
+      {/* {
+        animeList.map((anime,index)=>(
+            <>
+                <p key={index}>
+                    {anime}
+                </p>
+            </>
+        ))
+      } */}
     </div>
   )
 }
