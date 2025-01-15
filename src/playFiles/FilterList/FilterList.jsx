@@ -5,7 +5,7 @@ const FilterList = () => {
   const [animeList, setAnimeList] = useState([]);
   const[paginatedList,setPagionatedList] = useState([])
   const[animeIndex,setAnimeIndex] = useState(0)
-  
+  const[searchText,setSearchText] = useState('')
   const itemsPerPage = 10
     const handleNExt = ()=>{
         if(animeIndex-itemsPerPage<animeList.length){
@@ -31,6 +31,7 @@ const FilterList = () => {
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-4 text-center">Animes List</h1>
+      <input placeholder='Search your Anime' value={searchText} onChange={(e)=>setSearchText(e.target.value)} className='p-2 border-[1px] border-black rounded-md'/>
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white border border-gray-300 rounded-lg">
           <thead>
