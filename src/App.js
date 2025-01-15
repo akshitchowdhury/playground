@@ -11,6 +11,7 @@ import ApplicationPage from "./playFiles/AuthApplication/ProtectedRoutes/Applica
 import ProtectedRoute from "./playFiles/AuthApplication/utils/ProtectedRoute";
 import FeedBackStar from "./playFiles/FeedBackStar/FeedBackStar";
 import FilterList from "./playFiles/FilterList/FilterList";
+import AnimePortal from "./playFiles/AnimePortal/AnimePortal";
 function App() {
 
   return (
@@ -27,7 +28,7 @@ function App() {
       </Routes>
       </Router> */}
       {/* <FeedBackStar/> */}
-      <FilterList/>
+      <AnimePortal/>
     </div>
   );
 }
