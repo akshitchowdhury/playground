@@ -20,8 +20,9 @@ const AnimePortal = () => {
        animeRender()
     },[])
   return (
+    <>
     <div>
-      {
+      {/* {
         animeCategories.map((anime,index)=>(
             <>
                 <p key={index}>
@@ -40,9 +41,26 @@ const AnimePortal = () => {
                 </>
             ))
         ))
-      }
+      } */}
       
     </div>
+
+    <table className="min-w-full bg-white border border-gray-300 rounded-lg">
+        <thead>
+        <tr className="bg-gray-800 text-white">
+
+        <th>    Category</th>
+            
+         <th> Title</th>
+          <th>  rating</th>
+            </tr>
+
+            <tbody>
+                
+            </tbody>
+        </thead>
+    </table>
+    </>
   )
 }
 
