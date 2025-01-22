@@ -4,6 +4,7 @@ const ImageCarousel = () => {
     const[productList,setProductList] = useState([])
     const[pordImages,setProdImages] = useState([])
     const[carousleImgList,setCarousleImgList] = useState([])
+    const[imageIndex,setImageIndex] = useState(0)
     const getProducts = async()=>{
         const response = await fetch("https://dummyjson.com/products",{method: "GET"})
         const data = await response.json()
@@ -12,35 +13,44 @@ const ImageCarousel = () => {
         setProdImages(data.products.flatMap((product)=>product.images)) 
 
         setCarousleImgList(pordImages.slice(7,13))
-        console.log("Product list", productList)
-        console.log("Images arr", pordImages)
-        console.log("carousleImgList", carousleImgList)
+        // console.log("Product list", productList)
+        // console.log("Images arr", pordImages)
+        // console.log("carousleImgList", carousleImgList)
         
     }   
 
     useEffect(()=>{
         getProducts()
-    },[])
+    },[productList,imageIndex])
   return (
-    <div>
+    <div className='flex flex-row items-center justify-center align-middle justify-items-center'>
 
-    <div className='grid grid-cols-3'>
-      {/* {
-        pordImages.map((img,index)=>(
-            <>
-                <img className='h-[400px] w-[200px]' key={index} src={img}/>
-            </>
-        ))
-      } */}
+    {/* <div className='grid grid-cols-3'>
+
 
       {
         carousleImgList.map((img,index)=>(
             <>
-                <img className='h-[400px] w-[200px]' src={img}/>
+                <img key={index} className='h-[400px] w-[200px]' aria-placeholder={img} src={img}/>
+                
             </>
         ))
       }
+      </div> */}
+    
+      <button disabled={imageIndex===0}
+      className='bg-red-700 p-3'
+       onClick={()=>setImageIndex(imageIndex-1)}>
+                Previous image
+            </button>
+      <div className='imagebox w-[300px] h-[500px] border-[2px] border-blue-950'>
+            <img className='object-contain' src={carousleImgList[imageIndex]}/>
+            
       </div>
+      <button className='bg-blue-950 p-4' disabled={imageIndex===carousleImgList.length-1}
+       onClick={()=>setImageIndex(imageIndex+1)}>
+                Next image
+            </button>
     </div>
   )
 }
