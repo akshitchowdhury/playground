@@ -1,67 +1,70 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 
 const ImageCarousel = () => {
-    const[productList,setProductList] = useState([])
-    const[pordImages,setProdImages] = useState([])
-    const[carousleImgList,setCarousleImgList] = useState([])
-    const[imageIndex,setImageIndex] = useState(0)
-    const getProducts = async()=>{
-        const response = await fetch("https://dummyjson.com/products",{method: "GET"})
-        const data = await response.json()
-        setProductList(data.products)
+  const [productList, setProductList] = useState([]);
+  const [pordImages, setProdImages] = useState([]);
+  const [carousleImgList, setCarousleImgList] = useState([]);
+  const [imageIndex, setImageIndex] = useState(0);
 
-        setProdImages(data.products.flatMap((product)=>product.images)) 
+  const getProducts = async () => {
+    const response = await fetch('https://dummyjson.com/products', { method: 'GET' });
+    const data = await response.json();
+    setProductList(data.products);
 
-        setCarousleImgList(pordImages.slice(7,13))
-        // console.log("Product list", productList)
-        // console.log("Images arr", pordImages)
-        // console.log("carousleImgList", carousleImgList)
-        
-    }   
+    setProdImages(data.products.flatMap((product) => product.images));
 
-    useEffect(()=>{
-        getProducts()
-    },[productList,imageIndex])
+    setCarousleImgList(data.products.flatMap((product) => product.images).slice(7, 13));
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
   return (
-    <div className='flex flex-row items-center justify-center align-middle justify-items-center'>
+    <div className="flex flex-col items-center justify-center gap-6 py-8">
+      {/* Carousel Content */}
+      <div className="flex items-center justify-between w-full max-w-4xl">
+        <button
+          disabled={imageIndex === 0}
+          className={`p-3 rounded-lg text-white ${
+            imageIndex === 0 ? 'bg-gray-300 cursor-not-allowed' : 'bg-red-500 hover:bg-red-600'
+          }`}
+          onClick={() => setImageIndex(imageIndex - 1)}
+        >
+          Previous
+        </button>
 
-    {/* <div className='grid grid-cols-3'>
+        <div className="w-[300px] h-[400px] flex items-center justify-center border-4 border-blue-500 rounded-lg shadow-lg">
+          <img className="object-cover w-full h-full rounded-md" src={carousleImgList[imageIndex]} alt="carousel-item" />
+        </div>
 
-
-      {
-        carousleImgList.map((img,index)=>(
-            <>
-                <img key={index} className='h-[400px] w-[200px]' aria-placeholder={img} src={img}/>
-                
-            </>
-        ))
-      }
-      </div> */}
-    
-      <button disabled={imageIndex===0}
-      className='bg-red-700 p-3'
-       onClick={()=>setImageIndex(imageIndex-1)}>
-                Previous image
-            </button>
-      <div className='imagebox w-[300px] h-[500px] border-[2px] border-blue-950'>
-            <img className='object-contain' src={carousleImgList[imageIndex]}/>
-            
+        <button
+          disabled={imageIndex === carousleImgList.length - 1}
+          className={`p-3 rounded-lg text-white ${
+            imageIndex === carousleImgList.length - 1
+              ? 'bg-gray-300 cursor-not-allowed'
+              : 'bg-blue-500 hover:bg-blue-600'
+          }`}
+          onClick={() => setImageIndex(imageIndex + 1)}
+        >
+          Next
+        </button>
       </div>
-      <div className='flex flex-row gap-4'>
-        {
-            carousleImgList.map((item,index)=>(
-                <div className={`h-[20px] w-[20px] rounded-full ${index===imageIndex? 'bg-blue-600': 'bg-black'} `} key={index}>
-                        {index}
-                </div>
-            ))
-        }
+
+      {/* Dots Indicator */}
+      <div className="flex items-center gap-3">
+        {carousleImgList.map((_, index) => (
+          <div
+            key={index}
+            className={`h-4 w-4 rounded-full cursor-pointer transition-all duration-300 ${
+              index === imageIndex ? 'bg-blue-600 scale-125' : 'bg-gray-400 hover:scale-110'
+            }`}
+            onClick={() => setImageIndex(index)}
+          />
+        ))}
       </div>
-      <button className='bg-blue-950 p-4' disabled={imageIndex===carousleImgList.length-1}
-       onClick={()=>setImageIndex(imageIndex+1)}>
-                Next image
-            </button>
     </div>
-  )
-}
+  );
+};
 
-export default ImageCarousel
+export default ImageCarousel;
