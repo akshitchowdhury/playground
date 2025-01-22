@@ -47,6 +47,15 @@ const ImageCarousel = () => {
             <img className='object-contain' src={carousleImgList[imageIndex]}/>
             
       </div>
+      <div className='flex flex-row gap-4'>
+        {
+            carousleImgList.map((item,index)=>(
+                <div className={`h-[20px] w-[20px] rounded-full ${index===imageIndex? 'bg-blue-600': 'bg-black'} `} key={index}>
+                        {index}
+                </div>
+            ))
+        }
+      </div>
       <button className='bg-blue-950 p-4' disabled={imageIndex===carousleImgList.length-1}
        onClick={()=>setImageIndex(imageIndex+1)}>
                 Next image
