@@ -31,7 +31,7 @@ function App() {
       </Router> */}
       {/* <FeedBackStar/> */}
       {/* <AnimePortal/> */}
-      <IC_Two/>
+      <IC_Two/> 
     </div>
   );
 }
