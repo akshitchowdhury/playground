@@ -13,6 +13,7 @@ import FeedBackStar from "./playFiles/FeedBackStar/FeedBackStar";
 import FilterList from "./playFiles/FilterList/FilterList";
 import AnimePortal from "./playFiles/AnimePortal/AnimePortal";
 import ImageCarousel from "./playFiles/CustomCarousel/ImageCarousel/ImageCarousel";
+import IC_Two from "./playFiles/CustomCarousel/ImageCarousel/IC_Two";
 function App() {
 
   return (
@@ -30,7 +31,7 @@ function App() {
       </Router> */}
       {/* <FeedBackStar/> */}
       {/* <AnimePortal/> */}
-      <ImageCarousel/>
+      <IC_Two/>
     </div>
   );
 }
